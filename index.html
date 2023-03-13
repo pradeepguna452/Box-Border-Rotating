@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Border-Effect</title>
+</head>
+<style>
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    body{
+        background: rgb(41, 7, 85);
+        /* box-sizing: border-box; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+
+    }
+    .box{
+        width: 400px;
+        height: 600px;
+        border-radius: 20px;
+        background: rgb(6, 2, 24);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        /* z-index: 9; */
+        overflow:hidden;
+
+    }
+.box::before{
+    content: '';
+    position: absolute;
+    height: 140%;
+    width: 200px;
+    background: linear-gradient(red,green);
+    animation: animate 1s linear infinite;
+     /*  third value is :
+     1.linear-- to have same speed of rotation
+     2.reverse -- reverse the deg 
+     3.unset -- stop all 
+     4.forward -- 
+     5. alternate used to have rotation on front and backside
+      */
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    background: rgb(41, 7, 85);
+    inset: 10px;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.box p{
+    font-size: 10rem;
+        color: aliceblue;
+        font-family:sans-serif;
+        font-weight:600;  
+        /* increase Thickness of that font */
+        position: relative;
+        z-index: 10;
+
+}
+
+</style>
+<body>
+    <div class="box">
+        <p>02</p>
+    </div>
+    <div class="box">
+        <p>02</p>
+    </div>
+    
+</body>
+</html>
